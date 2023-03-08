@@ -17,4 +17,4 @@ COPY . /app
 RUN ./gradlew build
 
 # Set the startup command
-CMD ["java", "-jar", "build/libs/<your_jar_file_name>.jar"]
+CMD ["java", "-jar", "build/libs/message.jar"]

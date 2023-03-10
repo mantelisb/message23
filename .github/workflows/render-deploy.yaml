@@ -1,8 +1,5 @@
 name: Trigger Render Deployment
-on:
-  push:
-    branches:
-      - master
+on: push
 jobs:
   main:
     name: Deploy to Render

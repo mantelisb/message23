@@ -28,6 +28,6 @@ public class MessageControllerTests {
     @Test
     public void shouldBEandDBWork() {
         when(repository.findAll()).thenReturn(List.of(new Message(MESSAGE)));
-        assertEquals(MessageController.BE_SUCCESS_MESSAGE + System.lineSeparator() + MessageController.DB_SUCCESS_MESSAGE + System.lineSeparator() + MessageController.STORED_MESSAGES + System.lineSeparator() + MESSAGE, controller.getMessage());
+        assertEquals(MessageController.BE_SUCCESS_MESSAGE + MessageController.DB_SUCCESS_MESSAGE + System.lineSeparator() + MessageController.STORED_MESSAGES + System.lineSeparator() + MESSAGE, controller.getMessage());
     }
 }

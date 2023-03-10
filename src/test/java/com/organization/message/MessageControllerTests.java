@@ -6,15 +6,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 public class MessageControllerTests {
 
-    public static final String MESSAGE = "DB works";
+    public static final String MESSAGE = "yo yo";
     @Mock
     private MessageRepository repository;
 
@@ -28,12 +27,7 @@ public class MessageControllerTests {
 
     @Test
     public void shouldBEandDBWork() {
-        when(repository.findAll()).thenReturn(Arrays.asList(new Message(MESSAGE)));
-        assertEquals(MessageController.BE_SUCCESS_MESSAGE + MessageController.DB_SUCCESS_MESSAGE + MESSAGE, controller.getMessage());
-    }
-    @Test
-    public void shouldWorkOnlyBE() {
-        when(repository.findAll()).thenReturn(new ArrayList<>());
-        assertEquals(MessageController.BE_SUCCESS_MESSAGE, controller.getMessage());
+        when(repository.findAll()).thenReturn(List.of(new Message(MESSAGE)));
+        assertEquals(MessageController.BE_SUCCESS_MESSAGE + System.lineSeparator() + MessageController.DB_SUCCESS_MESSAGE + System.lineSeparator() + MessageController.STORED_MESSAGES + System.lineSeparator() + MESSAGE, controller.getMessage());
     }
 }

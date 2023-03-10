@@ -1,0 +1,16 @@
+name: Trigger Render Deployment
+on:
+  push:
+    branches:
+      - master
+jobs:
+  main:
+    name: Deploy to Render
+    runs-on: ubuntu-latest
+    steps:
+      - name: Render Deployment
+        uses: sws2apps/render-deployment@v1.2.0
+        with:
+          serviceId: srv-cg47pf2k728m6o4ud270
+          apiKey: rnd_Lb1kdyW8Ozmp7uGivTWC2LwwdnVm
+          multipleDeployment: false
